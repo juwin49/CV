@@ -1,2 +1,2 @@
 # CV
-introduce myself 啊啊啊~~~
+introduce myself ~~~
