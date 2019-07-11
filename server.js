@@ -1,4 +1,8 @@
-var http = require('http');
+// 首先加载所有需要用到的模块
+var http = require('http');        // Http服务器API
+var https = require("https");      //Https服务器API
+var fs = require('fs');            // 用于处理本地文件
+
 
 // http.createServer(function (request, response) {
 
@@ -14,12 +18,14 @@ var http = require('http');
 // // 终端打印如下信息
 // console.log('Server running at http://127.0.0.1:8888/');
 
-// 首先加载所有需要用到的模块
-var http = require('http');        // Http服务器API
-var fs = require('fs');            // 用于处理本地文件
-var server = new http.Server();    // 创建新的HTTP服务器
+//ssl证书
+var httpsOption = {
+    key : fs.readFileSync('./https/2_49stage.com.key'),
+    cert: fs.readFileSync('./https/1_49stage.com_bundle.crt')
+}
+//var server = http.createServer();    // 创建新的HTTP服务器
+var server = https.createServer(httpsOption);    // 创建新的HTTPS服务器
 server.listen(8484);            // 监听端口
-
 
 // 使用on方法注册时间处理
 server.on('request', function(request, response) { // 当有request请求的时候触发处理函数
