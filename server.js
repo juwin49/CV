@@ -23,8 +23,8 @@ var httpsOption = {
     key : fs.readFileSync('./https/2_49stage.com.key'),
     cert: fs.readFileSync('./https/1_49stage.com_bundle.crt')
 }
-//var server = http.createServer();    // 创建新的HTTP服务器
-var server = https.createServer(httpsOption);    // 创建新的HTTPS服务器
+var server = http.createServer();    // 创建新的HTTP服务器
+//var server = https.createServer(httpsOption);    // 创建新的HTTPS服务器
 server.listen(8484);            // 监听端口
 
 // 使用on方法注册时间处理
